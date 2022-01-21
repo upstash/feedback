@@ -1,7 +1,9 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@upstash/redis': ^0.2.1
   autoprefixer: ^10.4.2
+  nanoid: ^3.2.0
   next: ^12.0.8
   postcss: ^8.4.5
   prettier: ^2.5.1
@@ -10,6 +12,8 @@ specifiers:
   tailwindcss: ^3.0.15
 
 dependencies:
+  '@upstash/redis': 0.2.1
+  nanoid: 3.2.0
   next: 12.0.8_react-dom@17.0.2+react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -208,6 +212,13 @@ packages:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
 
+  /@upstash/redis/0.2.1:
+    resolution: {integrity: sha512-Qxpa81oCy68x5nXlkMKEQL32mEO6tUvYj0sIVNNuYLohYrdWpKZC0vGLLwKl/6HU1FoRiaD1Vdq177ZF4RyoSw==}
+    engines: {node: '>=10'}
+    dependencies:
+      isomorphic-unfetch: 3.1.0
+    dev: false
+
   /acorn-node/1.8.2:
     resolution: {integrity: sha512-8mt+fslDufLYntIoPAaIMUe/lrbrehIiwmR3t2k9LljIzoigEPF27eLk2hy8zSGzmR/ogr7zbRKINMo1u0yh5A==}
     dependencies:
@@ -261,7 +272,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.19.1
-      caniuse-lite: 1.0.30001300
+      caniuse-lite: 1.0.30001301
       fraction.js: 4.1.2
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -290,8 +301,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001300
-      electron-to-chromium: 1.4.49
+      caniuse-lite: 1.0.30001301
+      electron-to-chromium: 1.4.50
       escalade: 3.1.1
       node-releases: 2.0.1
       picocolors: 1.0.0
@@ -307,8 +318,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /caniuse-lite/1.0.30001300:
-    resolution: {integrity: sha512-cVjiJHWGcNlJi8TZVKNMnvMid3Z3TTdDHmLDzlOdIiZq138Exvo0G+G0wTdVYolxKb4AYwC+38pxodiInVtJSA==}
+  /caniuse-lite/1.0.30001301:
+    resolution: {integrity: sha512-csfD/GpHMqgEL3V3uIgosvh+SVIQvCh43SNu9HRbP1lnxkKm1kjDG4f32PP571JplkLjfS+mg2p1gxR7MYrrIA==}
 
   /chalk/2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
@@ -412,8 +423,8 @@ packages:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
     dev: true
 
-  /electron-to-chromium/1.4.49:
-    resolution: {integrity: sha512-k/0t1TRfonHIp8TJKfjBu2cKj8MqYTiEpOhci+q7CVEE5xnCQnx1pTa+V8b/sdhe4S3PR4p4iceEQWhGrKQORQ==}
+  /electron-to-chromium/1.4.50:
+    resolution: {integrity: sha512-g5X/6oVoqLyzKfsZ1HsJvxKoUAToFMCuq1USbmp/GPIwJDRYV1IEcv+plYTdh6h11hg140hycCBId0vf7rL0+Q==}
     dev: true
 
   /emojis-list/2.1.0:
@@ -553,6 +564,13 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
+  /isomorphic-unfetch/3.1.0:
+    resolution: {integrity: sha512-geDJjpoZ8N0kWexiwkX8F9NkTsXhetLPVbZFQ+JTW239QNOwvB0gniuR1Wc6f0AMTn7/mFGyXvHTifrCp/GH8Q==}
+    dependencies:
+      node-fetch: 2.6.1
+      unfetch: 4.2.0
+    dev: false
+
   /jest-worker/27.0.0-next.5:
     resolution: {integrity: sha512-mk0umAQ5lT+CaOJ+Qp01N6kz48sJG2kr2n1rX0koqKf6FIygQV0qLOdN9SCYID4IVeSigDOcPeGLozdMLYfb5g==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -646,7 +664,7 @@ packages:
     dependencies:
       '@next/env': 12.0.8
       '@next/react-refresh-utils': 12.0.8_react-refresh@0.8.3
-      caniuse-lite: 1.0.30001300
+      caniuse-lite: 1.0.30001301
       jest-worker: 27.0.0-next.5
       node-fetch: 2.6.1
       postcss: 8.2.15
@@ -865,8 +883,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /resolve/1.21.0:
-    resolution: {integrity: sha512-3wCbTpk5WJlyE4mSOtDLhqQmGFi0/TD9VPwmiolnk8U0wRgMEktqCXd3vy5buTO3tljvalNvKrjHEfrd2WpEKA==}
+  /resolve/1.21.1:
+    resolution: {integrity: sha512-lfEImVbnolPuaSZuLQ52cAxPBHeI77sPwCOWRdy12UG/CNa8an7oBHH1R+Fp1/mUqSJi4c8TIP6FOIPSZAUrEQ==}
     hasBin: true
     dependencies:
       is-core-module: 2.8.1
@@ -1020,7 +1038,7 @@ packages:
       postcss-selector-parser: 6.0.9
       postcss-value-parser: 4.2.0
       quick-lru: 5.1.1
-      resolve: 1.21.0
+      resolve: 1.21.1
     transitivePeerDependencies:
       - ts-node
     dev: true
@@ -1036,6 +1054,10 @@ packages:
     dependencies:
       is-number: 7.0.0
     dev: true
+
+  /unfetch/4.2.0:
+    resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}
+    dev: false
 
   /use-subscription/1.5.1_react@17.0.2:
     resolution: {integrity: sha512-Xv2a1P/yReAjAbhylMfFplFKj9GssgTwN7RlcTxBujFQcloStWNDQdc4g4NRWH9xS4i/FDk04vQBptAXoF3VcA==}
