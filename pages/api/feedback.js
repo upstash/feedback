@@ -1,3 +1,3 @@
-import { FeedbackAPI } from 'components/Feedback'
+import { FeedbackAPI } from 'components/feedback'
 
 export default FeedbackAPI

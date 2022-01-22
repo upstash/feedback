@@ -1,4 +1,4 @@
-import { FeedbackForm } from 'components/Feedback'
+import { FeedbackForm } from 'components/feedback'
 
 export default function IndexPage() {
   return (
@@ -10,7 +10,9 @@ export default function IndexPage() {
 </FeedbackForm>`}
       </pre>
       <FeedbackForm>
-        <button>Feedback</button>
+        <button className="py-1 px-2 bg-blue-600 text-white rounded">
+          Feedback
+        </button>
       </FeedbackForm>
 
       <hr className="my-20" />
@@ -28,7 +30,9 @@ export default function IndexPage() {
         user="steve.jobs@apple.com"
         metadata={{ location: 'Palo Alto' }}
       >
-        <button>Feedback with user</button>
+        <button className="py-1 px-2 bg-blue-600 text-white rounded">
+          Feedback with user
+        </button>
       </FeedbackForm>
     </div>
   )

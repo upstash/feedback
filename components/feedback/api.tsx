@@ -1,7 +1,11 @@
 import { hset } from '@upstash/redis'
 import { nanoid } from 'nanoid'
+import { NextApiResponse, NextApiRequest } from 'next'
 
-export default async function FeedbackApi(req, res) {
+export default async function FeedbackApi(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   try {
     const { body, method } = req
 

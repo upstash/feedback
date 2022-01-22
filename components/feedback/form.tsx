@@ -1,13 +1,38 @@
-import { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
+import FeedbackModal from './modal'
+import TriggerButton from './button'
 
-const FeedbackContext = createContext(null)
+export const FeedbackContext = createContext({
+  isModalShow: false,
+  setIsModalShow: (state: boolean) => {},
 
-export function FeedbackProvider({ user, metadata, children }) {
+  formUser: '',
+  setFormUser: (value: string) => {},
+  formMessage: '',
+  setFormMessage: (value: string) => {},
+
+  isSending: false,
+  onSend: () => {},
+
+  isHasUser: false,
+})
+
+export default function FeedbackForm({
+  children,
+  user,
+  metadata,
+}: {
+  children: React.ReactElement
+  user?: string
+  metadata?: object
+}) {
   const [isModalShow, setIsModalShow] = useState(false)
 
   const [formUser, setFormUser] = useState('')
   const [formMessage, setFormMessage] = useState('')
   const [isSending, setIsSending] = useState(false)
+
+  const isHasUser = !!user
 
   const onSend = async () => {
     try {
@@ -46,12 +71,13 @@ export function FeedbackProvider({ user, metadata, children }) {
         isSending,
         onSend,
 
-        user,
+        isHasUser,
       }}
     >
-      {children}
+      <div className="relative">
+        <TriggerButton>{children}</TriggerButton>
+        <FeedbackModal />
+      </div>
     </FeedbackContext.Provider>
   )
 }
-
-export default FeedbackContext
