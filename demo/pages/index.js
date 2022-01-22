@@ -1,4 +1,4 @@
-import { FeedbackForm } from 'components/feedback'
+import { FeedbackForm } from 'feedback'
 
 export default function IndexPage() {
   return (

@@ -10,7 +10,7 @@ dist/
 
 # Secret Environments
 .env.prod
-.env.local
+demo/.env.local
 
 # IDEs and editors
 /.idea
