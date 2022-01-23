@@ -1,3 +1,3 @@
-import { FeedbackAPI } from 'src'
+import { FeedbackAPI } from 'src/package'
 
 export default FeedbackAPI

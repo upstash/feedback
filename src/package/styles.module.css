@@ -1,0 +1,76 @@
+.feedbackRoot {
+  position: relative;
+}
+
+.feedbackRoot * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.feedbackContainer {
+  position: absolute;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 340px;
+  max-width: 100%;
+  background-color: #eee;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, .4);
+}
+
+.feedbackHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.feedbackTitle {
+  flex-grow: 1;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feedbackCloseButton {
+  color: #999;
+  transition: 120ms;
+}
+
+.feedbackCloseButton:hover {
+  color: #000;
+}
+
+.feedbackForm > * + * {
+  margin-top: 1rem;
+}
+
+.feedbackFormElement {
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 8px;
+  border-radius: 4px;
+  transition: 120ms;
+}
+
+.feedbackFormElementTextarea {
+  composes: feedbackFormElement;
+  resize: none;
+}
+
+.feedbackFormElementButton {
+  composes: feedbackFormElement;
+  background-color: rgba(37, 99, 235, 1);
+  color: white;
+}
+
+.feedbackFormElementButton:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}

@@ -1,6 +1,4 @@
-.cache
 node_modules
-package-lock.json
-*.lock
-public
+*-lock.json
+*-lock.yaml
 .github

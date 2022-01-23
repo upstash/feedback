@@ -1,23 +1,23 @@
 import React, { createContext, useState } from 'react'
-import FeedbackModal from './modal'
-import TriggerButton from './button'
 
-export const FeedbackContext = createContext({
+const defaultState = {
   isModalShow: false,
-  setIsModalShow: (state: boolean) => {},
+  onModalShow: (state: boolean) => {},
 
   formUser: '',
-  setFormUser: (value: string) => {},
+  onChangeFormUser: (value: string) => {},
   formMessage: '',
-  setFormMessage: (value: string) => {},
+  onChangeFormMessage: (value: string) => {},
 
   isSending: false,
   onSend: () => {},
 
   isHasUser: false,
-})
+}
 
-export default function FeedbackForm({
+const FeedbackContext = createContext(defaultState)
+
+export function FeedbackProvider({
   children,
   user,
   metadata,
@@ -57,16 +57,28 @@ export default function FeedbackForm({
     }
   }
 
+  const onModalShow = (status: boolean) => {
+    setIsModalShow(status)
+  }
+
+  const onChangeFormUser = (value: string) => {
+    setFormUser(value)
+  }
+
+  const onChangeFormMessage = (value: string) => {
+    setFormMessage(value)
+  }
+
   return (
     <FeedbackContext.Provider
       value={{
         isModalShow,
-        setIsModalShow,
+        onModalShow,
 
         formUser,
-        setFormUser,
+        onChangeFormUser,
         formMessage,
-        setFormMessage,
+        onChangeFormMessage,
 
         isSending,
         onSend,
@@ -74,10 +86,9 @@ export default function FeedbackForm({
         isHasUser,
       }}
     >
-      <div className="relative">
-        <TriggerButton>{children}</TriggerButton>
-        <FeedbackModal />
-      </div>
+      {children}
     </FeedbackContext.Provider>
   )
 }
+
+export default FeedbackContext

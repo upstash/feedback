@@ -1,45 +1,34 @@
 {
-  "name": "feedback",
-  "version": "0.0.1",
+  "name": "@upstash/feedback",
+  "version": "0.0.2-beta.11",
   "author": "Adem ilter <adem@upstash.com>",
   "license": "MIT",
-  "scripts": {
-    "build": "tsup"
-  },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/feedback.umd.js",
+  "module": "./dist/feedback.es.js",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "import": "./dist/feedback.es.js",
+      "require": "./dist/feedback.umd.js"
     }
   },
-  "tsup": {
-    "entry": [
-      "./src/index.tsx"
-    ],
-    "format": [
-      "esm",
-      "cjs"
-    ],
-    "splitting": false,
-    "sourcemap": false,
-    "clean": true
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
   },
   "dependencies": {
-    "@stitches/react": "^1.2.6",
     "@upstash/redis": "^0.2.1",
     "nanoid": "^3.2.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "typescript": "^4.5.5"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.10",
-    "@types/react": "^17.0.38",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@vitejs/plugin-react": "^1.0.7",
     "prettier": "^2.5.1",
-    "tsup": "^5.11.11"
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2"
   },
   "prettier": {
     "printWidth": 80,
