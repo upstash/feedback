@@ -1,6 +1,6 @@
 {
   "name": "@upstash/feedback",
-  "version": "0.0.3",
+  "version": "0.0.32",
   "author": "Adem ilter <adem@upstash.com>",
   "license": "MIT",
   "main": "./dist/feedback-widget.umd.js",
@@ -10,9 +10,7 @@
       "import": "./dist/feedback-widget.es.js",
       "require": "./dist/feedback-widget.umd.js"
     },
-    "./": "./",
-    "./dist": "./dist/",
-    "./dist/api": "./dist/api/"
+    "./": "./"
   },
   "scripts": {
     "dev": "vite",
@@ -21,6 +19,7 @@
     "build-api": "tsc && vite build --config vite-api.config.ts"
   },
   "dependencies": {
+    "@upstash/redis": "^0.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

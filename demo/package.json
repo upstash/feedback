@@ -3,7 +3,8 @@
     "dev": "next dev"
   },
   "dependencies": {
-    "@upstash/feedback": "^0.0.2-beta.22",
+    "@upstash/feedback": "^0.0.32",
+    "@upstash/redis": "^0.2.1",
     "next": "^12.0.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

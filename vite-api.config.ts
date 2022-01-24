@@ -6,11 +6,10 @@ export default defineConfig({
   build: {
     outDir: 'dist/api',
     lib: {
-      entry: path.resolve(__dirname, 'src/package/api.tsx'),
+      entry: path.resolve(__dirname, 'src/package/api.js'),
       formats: ['umd'],
       name: 'FeedbackWidgetAPI',
       fileName: (format) => `index.js`,
     },
-    rollupOptions: {},
   },
 })
