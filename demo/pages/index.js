@@ -1,4 +1,4 @@
-import FeedbackForm from '@upstash/feedback'
+import FeedbackWidget from '@upstash/feedback'
 
 export default function IndexPage() {
   return (
@@ -6,17 +6,16 @@ export default function IndexPage() {
       adem
       <pre className="mb-4">
         {`
-      <FeedbackForm>
+      <FeedbackWidget>
         <button>Feedback</button>
       </FeedbackForm>`}
       </pre>
-      <FeedbackForm />
-      {/*<FeedbackForm>*/}
-      {/*  <button className="py-1 px-2 bg-blue-600 text-white rounded">*/}
-      {/*    Feedback*/}
-      {/*  </button>*/}
-      {/*</FeedbackForm>*/}
-      {/*      <hr className="my-20" />*/}
+      <FeedbackWidget>
+        <button className="py-1 px-2 bg-blue-600 text-white rounded">
+          Feedback
+        </button>
+      </FeedbackWidget>
+      <hr className="my-20" />
       {/*      <pre className="mb-4">*/}
       {/*        {`*/}
       {/*<FeedbackForm*/}

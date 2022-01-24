@@ -1,3 +1,3 @@
-import { FeedbackAPI } from 'src/package'
+import FeedbackWidgetAPI from '@upstash/feedback/dist/api/index'
 
-export default FeedbackAPI
+export default FeedbackWidgetAPI

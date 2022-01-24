@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@upstash/feedback': ^0.0.2-beta.11
+  '@upstash/feedback': ^0.0.2-beta.22
   autoprefixer: ^10.4.2
   next: ^12.0.8
   postcss: ^8.4.5
@@ -10,7 +10,7 @@ specifiers:
   tailwindcss: ^3.0.15
 
 dependencies:
-  '@upstash/feedback': 0.0.2-beta.11
+  '@upstash/feedback': 0.0.2-beta.22
   next: 12.0.8_react-dom@17.0.2+react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -208,20 +208,11 @@ packages:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
 
-  /@upstash/feedback/0.0.2-beta.11:
-    resolution: {integrity: sha512-TIRQj05W953tpM44QsaI0zRjdm8XCgA6XhK2JpdYEZAl89XthHP7WjewXiNMfMkMEYI7yfwma7L2yjnrm84BZQ==}
+  /@upstash/feedback/0.0.2-beta.22:
+    resolution: {integrity: sha512-0y7MgKK8+XQGR67tAPn7ZG/jxmRByXx+1dxsK4ruAZTLmK9/bQ+mCeeJ0wkJJnCDwwfG8eXRMBMl0A9NTkZQXw==}
     dependencies:
-      '@upstash/redis': 0.2.1
-      nanoid: 3.2.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-    dev: false
-
-  /@upstash/redis/0.2.1:
-    resolution: {integrity: sha512-Qxpa81oCy68x5nXlkMKEQL32mEO6tUvYj0sIVNNuYLohYrdWpKZC0vGLLwKl/6HU1FoRiaD1Vdq177ZF4RyoSw==}
-    engines: {node: '>=10'}
-    dependencies:
-      isomorphic-unfetch: 3.1.0
     dev: false
 
   /acorn-node/1.8.2:
@@ -568,13 +559,6 @@ packages:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
     dev: true
-
-  /isomorphic-unfetch/3.1.0:
-    resolution: {integrity: sha512-geDJjpoZ8N0kWexiwkX8F9NkTsXhetLPVbZFQ+JTW239QNOwvB0gniuR1Wc6f0AMTn7/mFGyXvHTifrCp/GH8Q==}
-    dependencies:
-      node-fetch: 2.6.1
-      unfetch: 4.2.0
-    dev: false
 
   /jest-worker/27.0.0-next.5:
     resolution: {integrity: sha512-mk0umAQ5lT+CaOJ+Qp01N6kz48sJG2kr2n1rX0koqKf6FIygQV0qLOdN9SCYID4IVeSigDOcPeGLozdMLYfb5g==}
@@ -1053,10 +1037,6 @@ packages:
     dependencies:
       is-number: 7.0.0
     dev: true
-
-  /unfetch/4.2.0:
-    resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}
-    dev: false
 
   /use-subscription/1.5.1_react@17.0.2:
     resolution: {integrity: sha512-Xv2a1P/yReAjAbhylMfFplFKj9GssgTwN7RlcTxBujFQcloStWNDQdc4g4NRWH9xS4i/FDk04vQBptAXoF3VcA==}

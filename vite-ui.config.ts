@@ -3,11 +3,12 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  mode: 'production',
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/package/form.tsx'),
-      name: 'Feedback',
-      fileName: (format) => `feedback.${format}.js`,
+      entry: path.resolve(__dirname, 'src/package/index.tsx'),
+      name: 'FeedbackWidget',
+      fileName: (format) => `feedback-widget.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

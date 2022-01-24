@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import FeedbackForm from './package/form'
+import FeedbackWidget from './package/index'
 import './styles.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <FeedbackForm>
+    <FeedbackWidget>
       <button>aç/kapa</button>
-    </FeedbackForm>
+    </FeedbackWidget>
   </React.StrictMode>,
   document.getElementById('root')
 )

@@ -3,9 +3,6 @@
 }
 
 .feedbackRoot * {
-  margin: 0;
-  padding: 0;
-  border: 0;
   box-sizing: border-box;
 }
 
@@ -17,9 +14,9 @@
   width: 340px;
   max-width: 100%;
   background-color: #eee;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 4px;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, .4);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
 }
 
 .feedbackHeader {
@@ -31,12 +28,20 @@
 .feedbackTitle {
   flex-grow: 1;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
+  margin: 0;
 }
 
 .feedbackCloseButton {
+  cursor: pointer;
   color: #999;
   transition: 120ms;
+  border: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
 }
 
 .feedbackCloseButton:hover {
@@ -68,9 +73,10 @@
   composes: feedbackFormElement;
   background-color: rgba(37, 99, 235, 1);
   color: white;
+  cursor: pointer;
 }
 
 .feedbackFormElementButton:disabled {
-  opacity: .5;
+  opacity: 0.5;
   cursor: not-allowed;
 }

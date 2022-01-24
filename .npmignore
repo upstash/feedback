@@ -5,6 +5,5 @@ src/
 .prettierignore
 *-lock.yaml
 *-lock.json
-vite.config.ts
+vite-api.config.ts
 tsconfig.json
-src/

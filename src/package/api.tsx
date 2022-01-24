@@ -1,7 +1,8 @@
-import { hset } from '@upstash/redis'
-import { nanoid } from 'nanoid'
+const upstash = require('@upstash/redis')
 
-export default async function FeedbackApi(req: any, res: any) {
+const { hset } = upstash()
+
+export default async function FeedbackWidgetAPI(req: any, res: any) {
   try {
     const { body, method } = req
 
@@ -16,7 +17,7 @@ export default async function FeedbackApi(req: any, res: any) {
     // save database
     const { error } = await hset(
       'feedback',
-      nanoid(8),
+      Date.now(),
       JSON.stringify({ user, message, metadata })
     )
     if (error) throw error

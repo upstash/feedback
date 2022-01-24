@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import '@upstash/feedback/dist/style.css'
+
 import Head from 'next/head'
 
 export default function MyApp({ Component, pageProps }) {
