@@ -10,6 +10,13 @@ Install feedback package
 npm install @upstash/feedback
 ```
 
+Import css file
+
+```js
+// pages/_app.js
+import '@upstash/feedback/dist/style.css'
+```
+
 Import feedback component
 
 ```js
