@@ -1,3 +1,12 @@
 body {
   font-family: sans-serif;
+  background-color: #fff;
+}
+
+.list {
+  padding: 20px;
+}
+
+.list > * + * {
+  margin-top: 40px;
 }

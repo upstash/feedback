@@ -3,7 +3,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  mode: 'production',
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/package/index.tsx'),

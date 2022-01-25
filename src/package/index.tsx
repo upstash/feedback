@@ -8,14 +8,23 @@ export default function FeedbackWidget({
   children,
   user,
   metadata,
+  type = 'form',
+  apiPath = 'api/feedback',
 }: {
   user?: string
   metadata?: object
   children?: React.ReactElement
+  type?: 'form' | 'rate' | 'full'
+  apiPath?: string
 }) {
   return (
-    <FeedbackProvider user={user} metadata={metadata}>
-      <div className={styles.feedbackRoot}>
+    <FeedbackProvider
+      user={user}
+      metadata={metadata}
+      type={type}
+      apiPath={apiPath}
+    >
+      <div className={styles.root}>
         {children ? (
           <TriggerButton>{children}</TriggerButton>
         ) : (

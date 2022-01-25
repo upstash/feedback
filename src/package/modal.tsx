@@ -2,6 +2,10 @@ import IconClose from './icon-close'
 import FeedbackContext from './store'
 import React, { useContext } from 'react'
 import styles from './styles.module.css'
+import FeedbackModalElementRate from './modal-element-rate'
+import IconEmojiBad from './icon-emoji-bad'
+import IconEmojiNice from './icon-emoji-nice'
+import IconEmojiMeh from './icon-emoji-meh'
 
 export default function FeedbackModal() {
   const {
@@ -12,21 +16,24 @@ export default function FeedbackModal() {
     onChangeFormUser,
     formMessage,
     onChangeFormMessage,
+    formRate,
+    onChangeFormRate,
 
     isSending,
     onSend,
 
     isHasUser,
+    type,
   } = useContext(FeedbackContext)
 
   if (!isModalShow) return null
 
   return (
-    <div className={styles.feedbackContainer}>
-      <header className={styles.feedbackHeader}>
-        <h5 className={styles.feedbackTitle}>Feedback</h5>
+    <div className={styles.modal}>
+      <header className={styles.header}>
+        <h5 className={styles.modalTitle}>Feedback</h5>
         <button
-          className={styles.feedbackCloseButton}
+          className={styles.modalCloseButton}
           onClick={() => onModalShow(false)}
         >
           <IconClose size={20} />
@@ -34,7 +41,7 @@ export default function FeedbackModal() {
       </header>
 
       <form
-        className={styles.feedbackForm}
+        className={styles.form}
         onSubmit={(e) => {
           e.preventDefault()
           onSend()
@@ -43,7 +50,7 @@ export default function FeedbackModal() {
         {!isHasUser && (
           <div>
             <input
-              className={styles.feedbackFormElement}
+              className={styles.formElement}
               type="email"
               name="email"
               placeholder="Email"
@@ -55,22 +62,54 @@ export default function FeedbackModal() {
             />
           </div>
         )}
-        <div>
-          <textarea
-            className={styles.feedbackFormElementTextarea}
-            name="message"
-            placeholder="Message"
-            rows={3}
-            required
-            value={formMessage}
-            onChange={(event: React.ChangeEvent) =>
-              onChangeFormMessage((event.target as HTMLInputElement).value)
-            }
-          />
-        </div>
+
+        {['full', 'form'].includes(type) && (
+          <div>
+            <textarea
+              className={styles.formElementTextarea}
+              name="message"
+              placeholder="Message"
+              rows={3}
+              required
+              value={formMessage}
+              onChange={(event: React.ChangeEvent) =>
+                onChangeFormMessage((event.target as HTMLInputElement).value)
+              }
+            />
+          </div>
+        )}
+
+        {['full', 'rate'].includes(type) && (
+          <div>
+            <div className={styles.rateContainer}>
+              <FeedbackModalElementRate
+                value="bad"
+                selected={formRate}
+                onChange={onChangeFormRate}
+              >
+                <IconEmojiBad />
+              </FeedbackModalElementRate>
+              <FeedbackModalElementRate
+                value="meh"
+                selected={formRate}
+                onChange={onChangeFormRate}
+              >
+                <IconEmojiMeh />
+              </FeedbackModalElementRate>
+              <FeedbackModalElementRate
+                value="nice"
+                selected={formRate}
+                onChange={onChangeFormRate}
+              >
+                <IconEmojiNice />
+              </FeedbackModalElementRate>
+            </div>
+          </div>
+        )}
+
         <div>
           <button
-            className={styles.feedbackFormElementButton}
+            className={styles.formElementButton}
             type="submit"
             disabled={isSending}
           >

@@ -1,6 +1,6 @@
 {
   "name": "@upstash/feedback",
-  "version": "0.0.32",
+  "version": "0.0.5",
   "author": "Adem ilter <adem@upstash.com>",
   "license": "MIT",
   "main": "./dist/feedback-widget.umd.js",
@@ -14,12 +14,11 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build-ui && pnpm build-api",
-    "build-ui": "tsc && vite build --config vite-ui.config.ts",
-    "build-api": "tsc && vite build --config vite-api.config.ts"
+    "build": "tsc && vite build"
   },
   "dependencies": {
     "@upstash/redis": "^0.2.1",
+    "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -37,10 +36,7 @@
     "tabWidth": 2,
     "useTabs": false,
     "semi": false,
-    "singleQuote": true,
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "fluid": false
+    "singleQuote": true
   },
   "homepage": "https://github.com/upstash/feedback#readme",
   "repository": {

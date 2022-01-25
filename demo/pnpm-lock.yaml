@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@upstash/feedback': ^0.0.32
+  '@upstash/feedback': ^0.0.4
   '@upstash/redis': ^0.2.1
   autoprefixer: ^10.4.2
   next: ^12.0.8
@@ -11,7 +11,7 @@ specifiers:
   tailwindcss: ^3.0.15
 
 dependencies:
-  '@upstash/feedback': 0.0.32
+  '@upstash/feedback': 0.0.4
   '@upstash/redis': 0.2.1
   next: 12.0.8_react-dom@17.0.2+react@17.0.2
   react: 17.0.2
@@ -210,10 +210,11 @@ packages:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
 
-  /@upstash/feedback/0.0.32:
-    resolution: {integrity: sha512-9lvDv8RosnaxeX724QhCHX0voP+HzMqeTQDJ+0or/TtweE31i0qN+/jdGS6D2WgkZeELuPg/k9HsUL3sDDW0eg==}
+  /@upstash/feedback/0.0.4:
+    resolution: {integrity: sha512-Pb91j2OjVHqJVjSiqMOvTeB/s068ZodVfzARPvEfAn4RWQzFAIE8k0kSqKNJY/xJ2cL8qWTYFA1SYKgUK7Oo1w==}
     dependencies:
       '@upstash/redis': 0.2.1
+      classnames: 2.3.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     transitivePeerDependencies:
@@ -312,7 +313,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001301
-      electron-to-chromium: 1.4.51
+      electron-to-chromium: 1.4.52
       escalade: 3.1.1
       node-releases: 2.0.1
       picocolors: 1.0.0
@@ -362,6 +363,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /classnames/2.3.1:
+    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
+    dev: false
 
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -433,8 +438,8 @@ packages:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
     dev: true
 
-  /electron-to-chromium/1.4.51:
-    resolution: {integrity: sha512-JNEmcYl3mk1tGQmy0EvL5eik/CKSBuzAyGP0QFdG6LIgxQe3II0BL1m2zKc2MZMf3uGqHWE1TFddJML0RpjSHQ==}
+  /electron-to-chromium/1.4.52:
+    resolution: {integrity: sha512-JGkh8HEh5PnVrhU4HbpyyO0O791dVY6k7AdqfDeqbcRMeoGxtNHWT77deR2nhvbLe4dKpxjlDEvdEwrvRLGu2Q==}
     dev: true
 
   /emojis-list/2.1.0:

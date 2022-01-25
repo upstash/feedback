@@ -1,5 +1,7 @@
 import React, { createContext, useState } from 'react'
 
+type TypeRate = '' | 'bad' | 'meh' | 'nice'
+
 const defaultState = {
   isModalShow: false,
   onModalShow: (state: boolean) => {},
@@ -8,11 +10,14 @@ const defaultState = {
   onChangeFormUser: (value: string) => {},
   formMessage: '',
   onChangeFormMessage: (value: string) => {},
+  formRate: '',
+  onChangeFormRate: (value: TypeRate) => {},
 
   isSending: false,
   onSend: () => {},
 
   isHasUser: false,
+  type: 'form',
 }
 
 const FeedbackContext = createContext(defaultState)
@@ -21,8 +26,12 @@ export function FeedbackProvider({
   children,
   user,
   metadata,
+  type,
+  apiPath,
 }: {
   children: React.ReactElement
+  type: string
+  apiPath: string
   user?: string
   metadata?: object
 }) {
@@ -30,6 +39,7 @@ export function FeedbackProvider({
 
   const [formUser, setFormUser] = useState('')
   const [formMessage, setFormMessage] = useState('')
+  const [formRate, setFormRate] = useState<TypeRate>('')
   const [isSending, setIsSending] = useState(false)
 
   const isHasUser = !!user
@@ -37,11 +47,12 @@ export function FeedbackProvider({
   const onSend = async () => {
     try {
       setIsSending(true)
-      await fetch('/api/feedback', {
+      await fetch(apiPath, {
         method: 'post',
         body: JSON.stringify({
           user: user || formUser,
           message: formMessage,
+          rate: formRate,
           metadata,
         }),
       })
@@ -49,6 +60,7 @@ export function FeedbackProvider({
       await new Promise((r) => setTimeout(r, 600))
       setFormUser('')
       setFormMessage('')
+      setFormRate('')
       setIsModalShow(false)
     } catch (err) {
       alert(err)
@@ -69,6 +81,10 @@ export function FeedbackProvider({
     setFormMessage(value)
   }
 
+  const onChangeFormRate = (value: TypeRate) => {
+    setFormRate(value)
+  }
+
   return (
     <FeedbackContext.Provider
       value={{
@@ -79,11 +95,14 @@ export function FeedbackProvider({
         onChangeFormUser,
         formMessage,
         onChangeFormMessage,
+        formRate,
+        onChangeFormRate,
 
         isSending,
         onSend,
 
         isHasUser,
+        type,
       }}
     >
       {children}

@@ -1,38 +1,42 @@
-.feedbackRoot {
+.root {
   position: relative;
 }
 
-.feedbackRoot * {
+.root * {
   box-sizing: border-box;
 }
 
-.feedbackContainer {
+.modal {
   position: absolute;
   z-index: 50;
-  left: 0;
-  top: 0;
+  left: -10px;
+  top: -10px;
   width: 340px;
   max-width: 100%;
-  background-color: #eee;
+  background-color: #fff;
   padding: 1.5rem;
   border-radius: 4px;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 #0000,
+  0 0 #0000,
+  0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  0 1px 2px 0 rgba(0, 0, 0, 0.06),
+  0 10px 30px -10px rgba(0, 0, 0, 0.3)
 }
 
-.feedbackHeader {
+.header {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.feedbackTitle {
+.modalTitle {
   flex-grow: 1;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
 }
 
-.feedbackCloseButton {
+.modalCloseButton {
   cursor: pointer;
   color: #999;
   transition: 120ms;
@@ -44,39 +48,70 @@
   background-color: transparent;
 }
 
-.feedbackCloseButton:hover {
+.modalCloseButton:hover {
   color: #000;
 }
 
-.feedbackForm > * + * {
+.form > * + * {
   margin-top: 1rem;
 }
 
-.feedbackFormElement {
+.formElement {
   font-size: 1rem;
   font-family: inherit;
   font-weight: normal;
   display: block;
   width: 100%;
-  border: 0;
   padding: 8px;
   border-radius: 4px;
   transition: 120ms;
+  border: 1px solid rgba(209, 213, 219, 1);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
-.feedbackFormElementTextarea {
-  composes: feedbackFormElement;
+.formElement:focus {
+  outline-color: rgba(99, 102, 241, 1);
+}
+
+.formElementTextarea {
+  composes: formElement;
   resize: none;
 }
 
-.feedbackFormElementButton {
-  composes: feedbackFormElement;
-  background-color: rgba(37, 99, 235, 1);
+.formElementButton {
+  composes: formElement;
+  background-color: rgba(79, 70, 229, 1);
   color: white;
   cursor: pointer;
+  border: 0;
 }
 
-.feedbackFormElementButton:disabled {
+.formElementButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.rateContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.rateLabel {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  border-radius: 999px;
+}
+
+.rateLabelSelected {
+  background-color: #eee;
+}
+
+.rateInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }

@@ -1,5 +1,4 @@
-const upstash = require('@upstash/redis')
-const { hset } = upstash()
+import { hset } from '@upstash/redis'
 
 export default async function FeedbackWidgetAPI(req, res) {
   try {
