@@ -14,6 +14,7 @@ Import css file
 
 ```js
 // pages/_app.js
+
 import '@upstash/feedback/dist/style.css'
 ```
 
@@ -27,7 +28,7 @@ import FeedbackWidget from '@upstash/feedback'
 export default function Index() {
   return (
     <div>
-      <FeedbackWidget type="simple">
+      <FeedbackWidget>
         <button>Feedback</button>
       </FeedbackWidget>
     </div>
@@ -48,16 +49,26 @@ Create API
 ```js
 // pages/api/feedback.js
 
-import FeedbackWidgetAPI from '@upstash/feedback/dist/api/index'
+import upstash from '@upstash/redis'
 
-export default FeedbackWidgetAPI
-```
+const redis = upstash("UPSTASH_REDIS_REST_URL", "UPSTASH_REDIS_REST_TOKEN")
 
-Configure environment variable
+export default async function handler(req, res) {
+  try {
+    const { body } = req
 
-```bash
-UPSTASH_REDIS_REST_URL=
-UPSTASH_REDIS_REST_TOKEN=
+    const { user, message, metadata } = JSON.parse(body)
+    if (!user || !message) throw 'missing params'
+
+    const data = JSON.stringify({ user, message, metadata })
+    const { error } = await redis.hset('feedback', Date.now(), data)
+    if (error) throw error
+
+    return res.status(200).json({ message: 'success' })
+  } catch (err) {
+    return res.status(400).json({ message: err })
+  }
+}
 ```
 
 > `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` find the variables in the database details page in Upstash Console.
