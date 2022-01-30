@@ -1,17 +1,31 @@
 import React, { useContext } from 'react'
 import FeedbackContext from './store'
+import IconDisplay from './icon-display'
+import styles from './styles.module.css'
+import IconClose from './icon-close'
 
 export default function TriggerButton({
   children,
 }: {
-  children: React.ReactElement
+  children?: React.ReactElement
 }) {
   const { isModalShow, onModalShow } = useContext(FeedbackContext)
-  const { onClick, ...prevProps } = children.props
 
-  return React.cloneElement(children, {
-    type: 'button',
-    onClick: () => onModalShow(!isModalShow),
-    ...prevProps,
-  })
+  return (
+    <button
+      type="button"
+      className={styles.triggerButton}
+      onClick={() => {
+        onModalShow(!isModalShow)
+      }}
+    >
+      {isModalShow ? (
+        <>
+          <IconClose size={30} />
+        </>
+      ) : (
+        <>{children ? { children } : <IconDisplay />}</>
+      )}
+    </button>
+  )
 }

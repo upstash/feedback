@@ -15,10 +15,6 @@ export default function FeedbackModalElementRate({
 }) {
   const isSelected = selected === value
 
-  const Child = React.cloneElement(children, {
-    selected: isSelected,
-  })
-
   return (
     <label
       className={cx(styles.rateLabel, isSelected && styles.rateLabelSelected)}
@@ -30,7 +26,7 @@ export default function FeedbackModalElementRate({
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-      {Child}
+      {children}
     </label>
   )
 }

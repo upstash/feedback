@@ -1,59 +1,70 @@
 .root {
-  position: relative;
+  --color-primary: #1f5a68;
+  --color-text: white;
+  --input-height: 46px;
+
+  z-index: 99999;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100vw;
+  height: 0;
 }
 
 .root * {
   box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.triggerButton {
+  cursor: pointer;
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-primary);
+  border-radius: 60px;
+  box-shadow: rgb(0 0 0 / 6%) 0 1px 6px 0, rgb(0 0 0 / 16%) 0 2px 32px 0;
 }
 
 .modal {
+  overflow: hidden;
+  z-index: 2;
   position: absolute;
-  z-index: 50;
-  left: -10px;
-  top: -10px;
-  width: 340px;
+  bottom: calc(100% + 60px + 20px);
+  right: 0;
+  width: 360px;
   max-width: 100%;
   background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 4px;
-  box-shadow: 0 0 #0000,
-  0 0 #0000,
-  0 1px 3px 0 rgba(0, 0, 0, 0.1),
-  0 1px 2px 0 rgba(0, 0, 0, 0.06),
-  0 10px 30px -10px rgba(0, 0, 0, 0.3)
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 5px 40px;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
+  background-color: var(--color-primary);
+  margin: -30px -30px 30px;
+  padding: 30px;
+  color: var(--color-text);
 }
 
 .modalTitle {
   flex-grow: 1;
-  font-size: 1rem;
+  font-size: 26px;
   font-weight: 600;
-  margin: 0;
+  margin-bottom: 10px;
 }
 
-.modalCloseButton {
-  cursor: pointer;
-  color: #999;
-  transition: 120ms;
-  border: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-}
-
-.modalCloseButton:hover {
-  color: #000;
+.form {
 }
 
 .form > * + * {
-  margin-top: 1rem;
+  margin-top: 20px;
 }
 
 .formElement {
@@ -62,27 +73,29 @@
   font-weight: normal;
   display: block;
   width: 100%;
-  padding: 8px;
+  padding: 10px;
+  height: var(--input-height);
   border-radius: 4px;
-  transition: 120ms;
+  transition: 160ms;
   border: 1px solid rgba(209, 213, 219, 1);
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
 .formElement:focus {
-  outline-color: rgba(99, 102, 241, 1);
+  outline-color: var(--color-primary);
 }
 
 .formElementTextarea {
   composes: formElement;
   resize: none;
+  height: auto;
 }
 
 .formElementButton {
   composes: formElement;
-  background-color: rgba(79, 70, 229, 1);
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-text);
   cursor: pointer;
   border: 0;
 }
@@ -96,7 +109,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .rateLabel {
@@ -104,10 +117,13 @@
   cursor: pointer;
   display: flex;
   border-radius: 999px;
+  padding: 4px;
+  transition: 160ms;
 }
 
 .rateLabelSelected {
-  background-color: #eee;
+  background-color: rgb(255 255 0 / 30%);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 60%);
 }
 
 .rateInput {

@@ -3,7 +3,7 @@ import FeedbackContext from './store'
 import React, { useContext } from 'react'
 import styles from './styles.module.css'
 import FeedbackModalElementRate from './modal-element-rate'
-import IconEmojiBad from './icon-emoji-bad'
+import IconEmojiSad from './icon-emoji-sad'
 import IconEmojiNice from './icon-emoji-nice'
 import IconEmojiMeh from './icon-emoji-meh'
 
@@ -31,13 +31,8 @@ export default function FeedbackModal() {
   return (
     <div className={styles.modal}>
       <header className={styles.header}>
-        <h5 className={styles.modalTitle}>Feedback</h5>
-        <button
-          className={styles.modalCloseButton}
-          onClick={() => onModalShow(false)}
-        >
-          <IconClose size={20} />
-        </button>
+        <h3 className={styles.modalTitle}>Hi 👋</h3>
+        <p>We help your business grow by connecting you to your customers.</p>
       </header>
 
       <form
@@ -87,7 +82,7 @@ export default function FeedbackModal() {
                 selected={formRate}
                 onChange={onChangeFormRate}
               >
-                <IconEmojiBad />
+                <IconEmojiSad />
               </FeedbackModalElementRate>
               <FeedbackModalElementRate
                 value="meh"
