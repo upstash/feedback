@@ -10,31 +10,35 @@ Install feedback package
 npm install @upstash/feedback
 ```
 
-Import css file
+Import css and component file
 
 ```js
 // pages/_app.js
 
 import '@upstash/feedback/dist/style.css'
-```
-
-Import feedback component
-
-```js
-// pages/index.js
-
 import FeedbackWidget from '@upstash/feedback'
 
-export default function Index() {
+export default function MyApp({ Component, pageProps }) {
   return (
-    <div>
-      <FeedbackWidget>
-        <button>Feedback</button>
-      </FeedbackWidget>
-    </div>
+    <>
+      <FeedbackWidget />
+      <Component {...pageProps} />
+    </>
   )
 }
 ```
+
+The options can be passed into genConfig or as React props
+
+| key           | type               | default        | accept                 |
+| ------------- | ------------------ | -------------- | ---------------------- |
+| `user?`       | string             |                |                        |
+| `metadata?`   | object             | null           |                        |
+| `type?`       | string             | "form"         | 'form', 'rate', 'full' |
+| `apiPath?`    | string             | 'api/feedback' |                        |
+| `themeColor?` | string             | '#1f5a68'      |                        |
+| `textColor?`  | string             | '#ffffff'      |                        |
+| `icon?`       | React.ReactElement |                |                        |
 
 ## 2. Backend
 
@@ -51,17 +55,11 @@ Create API
 
 import upstash from '@upstash/redis'
 
-const redis = upstash("UPSTASH_REDIS_REST_URL", "UPSTASH_REDIS_REST_TOKEN")
+const redis = upstash('UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN')
 
-export default async function handler(req, res) {
+export default async function FeedbackWidgetAPI(req, res) {
   try {
-    const { body } = req
-
-    const { user, message, metadata } = JSON.parse(body)
-    if (!user || !message) throw 'missing params'
-
-    const data = JSON.stringify({ user, message, metadata })
-    const { error } = await redis.hset('feedback', Date.now(), data)
+    const { error } = await hset('feedback', Date.now(), req.body)
     if (error) throw error
 
     return res.status(200).json({ message: 'success' })

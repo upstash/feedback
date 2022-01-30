@@ -9,6 +9,7 @@
   right: 20px;
   width: 100vw;
   height: 0;
+  line-height: 1.4;
 }
 
 .root * {
@@ -28,6 +29,9 @@
   width: 60px;
   height: 60px;
   background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 60px;
   box-shadow: rgb(0 0 0 / 6%) 0 1px 6px 0, rgb(0 0 0 / 16%) 0 2px 32px 0;
 }
@@ -49,7 +53,7 @@
 .header {
   background-color: var(--color-primary);
   margin: -30px -30px 30px;
-  padding: 30px;
+  padding: 20px 30px;
   color: var(--color-text);
 }
 
@@ -116,6 +120,8 @@
   position: relative;
   cursor: pointer;
   display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 999px;
   padding: 4px;
   transition: 160ms;

@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@upstash/feedback': ^0.0.4
+  '@upstash/feedback': ^0.1.0
   '@upstash/redis': ^0.2.1
   autoprefixer: ^10.4.2
   next: ^12.0.8
@@ -11,7 +11,7 @@ specifiers:
   tailwindcss: ^3.0.15
 
 dependencies:
-  '@upstash/feedback': 0.0.4
+  '@upstash/feedback': 0.1.0
   '@upstash/redis': 0.2.1
   next: 12.0.8_react-dom@17.0.2+react@17.0.2
   react: 17.0.2
@@ -210,8 +210,8 @@ packages:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
 
-  /@upstash/feedback/0.0.4:
-    resolution: {integrity: sha512-Pb91j2OjVHqJVjSiqMOvTeB/s068ZodVfzARPvEfAn4RWQzFAIE8k0kSqKNJY/xJ2cL8qWTYFA1SYKgUK7Oo1w==}
+  /@upstash/feedback/0.1.0:
+    resolution: {integrity: sha512-4erwSC5ZhZd8PW7zAc2hAHB7jqrlvIf3o8uQAXUTeXkkGBijNXfIjnOijByUUlQ92d8KqoHdTW4kbYXAxaNiQg==}
     dependencies:
       '@upstash/redis': 0.2.1
       classnames: 2.3.1

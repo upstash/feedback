@@ -4,7 +4,7 @@
     "build": "next build"
   },
   "dependencies": {
-    "@upstash/feedback": "^0.0.4",
+    "@upstash/feedback": "^0.1.0",
     "@upstash/redis": "^0.2.1",
     "next": "^12.0.8",
     "react": "^17.0.2",
