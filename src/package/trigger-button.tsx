@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import FeedbackContext from './store'
-import IconDisplay from './icon-display'
+import IconDefault from './icon-default'
 import styles from './styles.module.css'
 import IconClose from './icon-close'
 
@@ -9,7 +9,7 @@ export default function TriggerButton({
 }: {
   children?: React.ReactElement
 }) {
-  const { isModalShow, onModalShow } = useContext(FeedbackContext)
+  const { isModalShow, onModalShow, textColor } = useContext(FeedbackContext)
 
   return (
     <button
@@ -21,10 +21,10 @@ export default function TriggerButton({
     >
       {isModalShow ? (
         <>
-          <IconClose size={30} />
+          <IconClose color={textColor} size={30} />
         </>
       ) : (
-        <>{children ? { children } : <IconDisplay />}</>
+        <>{children ? children : <IconDefault color={textColor} />}</>
       )}
     </button>
   )

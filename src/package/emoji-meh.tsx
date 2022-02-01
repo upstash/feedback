@@ -1,12 +1,13 @@
 import React from 'react'
 
-export default function IconEmojiNice({ size = 34, ...props }) {
+export default function EmojiMeh({ size = 34, color = '#000', ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
-      fill="#000000"
+      color={color}
+      fill="currentColor"
       viewBox="0 0 256 256"
       {...props}
     >
@@ -15,15 +16,17 @@ export default function IconEmojiNice({ size = 34, ...props }) {
         cy="128"
         r="96"
         fill="none"
-        stroke="#000000"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        stroke="currentColor"
+        strokeMiterlimit="10"
         strokeWidth="12"
       />
-      <path
-        d="M169.6,152a48.1,48.1,0,0,1-83.2,0"
+      <line
+        x1="88"
+        y1="160"
+        x2="168"
+        y2="160"
         fill="none"
-        stroke="#000000"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="12"

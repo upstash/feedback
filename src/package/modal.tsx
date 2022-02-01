@@ -3,9 +3,9 @@ import FeedbackContext from './store'
 import React, { useContext } from 'react'
 import styles from './styles.module.css'
 import FeedbackModalElementRate from './modal-element-rate'
-import IconEmojiSad from './icon-emoji-sad'
-import IconEmojiNice from './icon-emoji-nice'
-import IconEmojiMeh from './icon-emoji-meh'
+import EmojiSad from './emoji-sad'
+import EmojiNice from './emoji-nice'
+import EmojiMeh from './emoji-meh'
 
 export default function FeedbackModal() {
   const {
@@ -82,21 +82,21 @@ export default function FeedbackModal() {
                 selected={formRate}
                 onChange={onChangeFormRate}
               >
-                <IconEmojiSad />
+                <EmojiSad />
               </FeedbackModalElementRate>
               <FeedbackModalElementRate
                 value="meh"
                 selected={formRate}
                 onChange={onChangeFormRate}
               >
-                <IconEmojiMeh />
+                <EmojiMeh />
               </FeedbackModalElementRate>
               <FeedbackModalElementRate
                 value="nice"
                 selected={formRate}
                 onChange={onChangeFormRate}
               >
-                <IconEmojiNice />
+                <EmojiNice />
               </FeedbackModalElementRate>
             </div>
           </div>

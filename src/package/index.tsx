@@ -9,9 +9,9 @@ export default function FeedbackWidget({
   metadata,
   type = 'form',
   apiPath = 'api/feedback',
-  themeColor = '#1f5a68',
-  textColor = '#fff',
-  icon,
+  themeColor = '#5f6c72',
+  textColor = 'white',
+  children,
 }: {
   user?: string
   metadata?: object
@@ -19,7 +19,7 @@ export default function FeedbackWidget({
   apiPath?: string
   themeColor?: string
   textColor?: string
-  icon?: React.ReactElement
+  children?: React.ReactElement
 }) {
   return (
     <FeedbackProvider
@@ -27,6 +27,8 @@ export default function FeedbackWidget({
       metadata={metadata}
       type={type}
       apiPath={apiPath}
+      themeColor={themeColor}
+      textColor={textColor}
     >
       <div
         className={styles.root}
@@ -36,7 +38,7 @@ export default function FeedbackWidget({
           '--color-text': textColor,
         }}
       >
-        <TriggerButton>{icon}</TriggerButton>
+        <TriggerButton>{children}</TriggerButton>
         <FeedbackModal />
       </div>
     </FeedbackProvider>

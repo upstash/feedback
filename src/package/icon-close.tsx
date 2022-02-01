@@ -1,12 +1,11 @@
-import React from 'react'
-
-export default function IconClose({ size = 34, ...props }) {
+export default function IconClose({ size = 34, color = '#000', ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
-      fill="white"
+      color={color}
+      fill="currentColor"
       viewBox="0 0 256 256"
       {...props}
     >
@@ -15,7 +14,7 @@ export default function IconClose({ size = 34, ...props }) {
         y1="56"
         x2="56"
         y2="200"
-        stroke="white"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="14"
@@ -25,7 +24,7 @@ export default function IconClose({ size = 34, ...props }) {
         y1="200"
         x2="56"
         y2="56"
-        stroke="white"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="14"

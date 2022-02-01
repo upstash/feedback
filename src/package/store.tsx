@@ -18,6 +18,8 @@ const defaultState = {
 
   isHasUser: false,
   type: 'form',
+  themeColor: '#1f5a68',
+  textColor: 'white',
 }
 
 const FeedbackContext = createContext(defaultState)
@@ -28,12 +30,16 @@ export function FeedbackProvider({
   metadata,
   type,
   apiPath,
+  themeColor,
+  textColor,
 }: {
   children: React.ReactElement
   type: string
   apiPath: string
   user?: string
   metadata?: object
+  themeColor: string
+  textColor: string
 }) {
   const [isModalShow, setIsModalShow] = useState(false)
 
@@ -103,6 +109,8 @@ export function FeedbackProvider({
 
         isHasUser,
         type,
+        themeColor,
+        textColor,
       }}
     >
       {children}
