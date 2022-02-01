@@ -10,7 +10,7 @@ export default function FeedbackWidget({
   type = 'form',
   apiPath = 'api/feedback',
   themeColor = '#5f6c72',
-  textColor = 'white',
+  textColor = '#ffffff',
   children,
 }: {
   user?: string

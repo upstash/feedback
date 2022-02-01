@@ -31,14 +31,14 @@ export default function MyApp({ Component, pageProps }) {
 The options can be passed into genConfig or as React props
 
 | key           | type               | default        | accept                 |
-| ------------- | ------------------ | -------------- | ---------------------- |
+|---------------| ------------------ | -------------- | ---------------------- |
 | `user?`       | string             |                |                        |
 | `metadata?`   | object             | null           |                        |
 | `type?`       | string             | "form"         | 'form', 'rate', 'full' |
 | `apiPath?`    | string             | 'api/feedback' |                        |
-| `themeColor?` | string             | '#1f5a68'      |                        |
+| `themeColor?` | string             | '#5f6c72'      |                        |
 | `textColor?`  | string             | '#ffffff'      |                        |
-| `icon?`       | React.ReactElement |                |                        |
+| `children?`   | React.ReactElement |                |                        |
 
 ## 2. Backend
 
