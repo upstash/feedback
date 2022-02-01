@@ -87,7 +87,44 @@ export default function IndexPage() {
             : ''
         }
   metadata={{ page: "index", location: "Palo Alto, CA" }}
-/>`}
+${icon === 'default' ? '/>' : '>'}
+  ${
+    icon === 'simple'
+      ? `<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="34"
+    height="34"
+    color="${textColor}"
+    fill="currentColor"
+    viewBox="0 0 256 256">
+      <path
+        d="M132,216H47.7a7.6,7.6,0,0,1-7.7-7.7V124a92,92,0,0,1,92-92h0a92,92,0,0,1,92,92h0A92,92,0,0,1,132,216Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="14"/>
+    </svg>\n<FeedbackWidget/>`
+      : ''
+  }${
+          icon === 'square'
+            ? `<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="34"
+    height="34"
+    color="${textColor}"
+    fill="currentColor"
+    viewBox="0 0 256 256">
+      <path
+        d="M77.4,201.9l-32.3,27A8,8,0,0,1,32,222.8V64a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8V192a8,8,0,0,1-8,8H82.5A7.8,7.8,0,0,0,77.4,201.9Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="14"/>
+    </svg>\n<FeedbackWidget/>`
+            : ''
+        }`}
       </pre>
 
       <FeedbackWidget
@@ -96,8 +133,9 @@ export default function IndexPage() {
         themeColor={themeColor}
         textColor={textColor}
       >
-        {icon === 'simple' && <IconSimple />}
-        {icon === 'square' && <IconSquare />}
+        {icon === 'simple' && <IconSimple color={textColor} />}
+        {icon === 'square' && <IconSquare color={textColor} />}
+        {icon === 'default' && <IconDefault color={textColor} />}
       </FeedbackWidget>
     </div>
   )
