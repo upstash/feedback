@@ -129,7 +129,7 @@
 
 .rateLabelSelected {
   background-color: rgb(255 255 0 / 30%);
-  box-shadow: 0 1px 3px rgb(0 0 0 / 60%);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 10%);
 }
 
 .rateInput {
