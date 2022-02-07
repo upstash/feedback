@@ -1,4 +1,3 @@
-import IconClose from './icon-close'
 import FeedbackContext from './store'
 import React, { useContext } from 'react'
 import styles from './styles.module.css'
@@ -7,7 +6,13 @@ import EmojiSad from './emoji-sad'
 import EmojiNice from './emoji-nice'
 import EmojiMeh from './emoji-meh'
 
-export default function FeedbackModal() {
+export default function FeedbackModal({
+  title,
+  description,
+}: {
+  title?: null | string | React.ReactElement
+  description?: null | string | React.ReactElement
+}) {
   const {
     isModalShow,
     onModalShow,
@@ -31,8 +36,8 @@ export default function FeedbackModal() {
   return (
     <div className={styles.modal}>
       <header className={styles.header}>
-        <h3 className={styles.modalTitle}>Hi 👋</h3>
-        <p>We help your business grow by connecting you to your customers.</p>
+        {title && <h3 className={styles.modalTitle}>{title}</h3>}
+        <p>{description}</p>
       </header>
 
       <form

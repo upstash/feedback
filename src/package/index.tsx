@@ -11,6 +11,8 @@ export default function FeedbackWidget({
   apiPath = 'api/feedback',
   themeColor = '#5f6c72',
   textColor = '#ffffff',
+  title = 'Hi 👋',
+  description = 'We help your business grow by connecting you to your customers.',
   children,
 }: {
   user?: string
@@ -19,6 +21,8 @@ export default function FeedbackWidget({
   apiPath?: string
   themeColor?: string
   textColor?: string
+  title?: null | string | React.ReactElement
+  description?: null | string | React.ReactElement
   children?: React.ReactElement
 }) {
   return (
@@ -39,7 +43,7 @@ export default function FeedbackWidget({
         }}
       >
         <TriggerButton>{children}</TriggerButton>
-        <FeedbackModal />
+        <FeedbackModal title={title} description={description} />
       </div>
     </FeedbackProvider>
   )
