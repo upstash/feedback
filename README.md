@@ -24,7 +24,7 @@ import FeedbackWidget from '@upstash/feedback'
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      <FeedbackWidget />
+      <FeedbackWidget type="full" />
       <Component {...pageProps} />
     </>
   )
@@ -67,7 +67,7 @@ const redis = upstash('UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN')
 
 export default async function FeedbackWidgetAPI(req, res) {
   try {
-    const { error } = await hset('feedback', Date.now(), req.body)
+    const { error } = await redis.hset('feedback', Date.now(), req.body)
     if (error) throw error
 
     return res.status(200).json({ message: 'success' })
@@ -77,10 +77,27 @@ export default async function FeedbackWidgetAPI(req, res) {
 }
 ```
 
-> `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` find these in the database details page in Upstash Console.
+> `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` can be found at the database details page in Upstash Console.
 
 ## Data Administration
 
 The submitted forms can be managed on [Upstash Console Integrations](https://console.upstash.com/integration/feedback) page.
 
+<img src="fdata.png" width="100%" >
+
+## Submitting the User Id
+
+If you already have an id (or email) for the current user, you can pass it to the component as a parameter, so the feedback will be stored together with the user's id.
+``` javascript
+<FeedbackWidget type="full" user={currentUser.email}/>
+```
+
+
+Also, you can set a user id just to hide email input, so the form can be submitted anonymously. 
+``` javascript
+<FeedbackWidget type="full" user="anything"/>
+```
+
+
+       
 
