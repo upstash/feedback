@@ -13,6 +13,7 @@ export default function FeedbackWidget({
   textColor = '#ffffff',
   title = 'Hi 👋',
   description = 'We help your business grow by connecting you to your customers.',
+  showOnInitial = false,
   children,
 }: {
   user?: string
@@ -23,6 +24,7 @@ export default function FeedbackWidget({
   textColor?: string
   title?: null | string | React.ReactElement
   description?: null | string | React.ReactElement
+  showOnInitial?: boolean
   children?: React.ReactElement
 }) {
   return (
@@ -33,6 +35,7 @@ export default function FeedbackWidget({
       apiPath={apiPath}
       themeColor={themeColor}
       textColor={textColor}
+      showOnInitial={showOnInitial}
     >
       <div
         className={styles.root}

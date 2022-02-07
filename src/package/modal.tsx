@@ -15,7 +15,6 @@ export default function FeedbackModal({
 }) {
   const {
     isModalShow,
-    onModalShow,
 
     formUser,
     onChangeFormUser,

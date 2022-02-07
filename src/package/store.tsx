@@ -20,6 +20,7 @@ const defaultState = {
   type: 'form',
   themeColor: '#1f5a68',
   textColor: 'white',
+  showOnInitial: false,
 }
 
 const FeedbackContext = createContext(defaultState)
@@ -32,6 +33,7 @@ export function FeedbackProvider({
   apiPath,
   themeColor,
   textColor,
+  showOnInitial,
 }: {
   children: React.ReactElement
   type: string
@@ -40,8 +42,9 @@ export function FeedbackProvider({
   metadata?: object
   themeColor: string
   textColor: string
+  showOnInitial: boolean
 }) {
-  const [isModalShow, setIsModalShow] = useState(false)
+  const [isModalShow, setIsModalShow] = useState(showOnInitial)
 
   const [formUser, setFormUser] = useState('')
   const [formMessage, setFormMessage] = useState('')
@@ -111,6 +114,7 @@ export function FeedbackProvider({
         type,
         themeColor,
         textColor,
+        showOnInitial,
       }}
     >
       {children}
