@@ -30,18 +30,18 @@ export default function MyApp({ Component, pageProps }) {
 
 The options can be passed into genConfig or as React props
 
-| key              | type                             | default        | accept                 |
-| ---------------- | -------------------------------- | -------------- | ---------------------- |
-| `user?`          | string                           |                |                        |
-| `metadata?`      | object                           | null           |                        |
-| `type?`          | string                           | "form"         | 'form', 'rate', 'full' |
-| `apiPath?`       | string                           | 'api/feedback' |                        |
-| `themeColor?`    | string                           | '#5f6c72'      |                        |
-| `textColor?`     | string                           | '#ffffff'      |                        |
-| `title?`         | null, string, React.ReactElement |                |                        |
-| `description?`   | null, string, React.ReactElement |                |                        |
-| `showOnInitial?` | boolean                          | false          |                        |
-| `children?`      | React.ReactElement               |                |                        |
+| key            | type                         | default        | accept                 |
+| -------------- | ---------------------------- | -------------- | ---------------------- |
+| `user?`        | string                       |                |                        |
+| `metadata?`    | object                       | null           |                        |
+| `type?`        | string                       | "form"         | 'form', 'rate', 'full' |
+| `apiPath?`     | string                       | 'api/feedback' |                        |
+| `themeColor?`  | string                       | '#5f6c72'      |                        |
+| `textColor?`   | string                       | '#ffffff'      |                        |
+| `title`        | string, React.ReactElement |                |                        |
+| `description`  | string, React.ReactElement |                |                        |
+| `showOnInitial?` | boolean                      | false          |                        |
+| `children?`    | React.ReactElement           |                |                        |
 
 ## 2. Backend
 

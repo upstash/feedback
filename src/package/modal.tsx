@@ -34,10 +34,12 @@ export default function FeedbackModal({
 
   return (
     <div className={styles.modal}>
-      <header className={styles.header}>
-        {title && <h3 className={styles.modalTitle}>{title}</h3>}
-        <p>{description}</p>
-      </header>
+      {(title || description) && (
+        <header className={styles.header}>
+          {title && <h3 className={styles.modalTitle}>{title}</h3>}
+          {description && <p>{description}</p>}
+        </header>
+      )}
 
       <form
         className={styles.form}

@@ -11,8 +11,8 @@ export default function FeedbackWidget({
   apiPath = 'api/feedback',
   themeColor = '#5f6c72',
   textColor = '#ffffff',
-  title = 'Hi 👋',
-  description = 'We help your business grow by connecting you to your customers.',
+  title,
+  description,
   showOnInitial = false,
   children,
 }: {
