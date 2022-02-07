@@ -87,21 +87,21 @@ export default function FeedbackModal({
                 selected={formRate}
                 onChange={onChangeFormRate}
               >
-                <EmojiSad />
+                <EmojiSad color={formRate === 'bad' ? '#000' : '#999'} />
               </FeedbackModalElementRate>
               <FeedbackModalElementRate
                 value="meh"
                 selected={formRate}
                 onChange={onChangeFormRate}
               >
-                <EmojiMeh />
+                <EmojiMeh color={formRate === 'meh' ? '#000' : '#999'} />
               </FeedbackModalElementRate>
               <FeedbackModalElementRate
                 value="nice"
                 selected={formRate}
                 onChange={onChangeFormRate}
               >
-                <EmojiNice />
+                <EmojiNice color={formRate === 'nice' ? '#000' : '#999'} />
               </FeedbackModalElementRate>
             </div>
           </div>
