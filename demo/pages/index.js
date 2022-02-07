@@ -132,6 +132,7 @@ ${icon === 'default' ? '/>' : '>'}
         type={type}
         themeColor={themeColor}
         textColor={textColor}
+        metadata={{ page: 'index', location: 'Palo Alto, CA' }}
       >
         {icon === 'simple' && <IconSimple color={textColor} />}
         {icon === 'square' && <IconSquare color={textColor} />}
