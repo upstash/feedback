@@ -42,7 +42,7 @@ export default function IndexPage() {
         </p>
       </header>
 
-      <div className="grid grid-cols-2 w-fit gap-x-4 gap-y-2 p-6 bg-gray-100 rounded-xl">
+      <div className="grid grid-cols-2 auto-rows-fr items-center w-fit gap-x-4 gap-y-2 p-6 bg-gray-100 rounded-xl">
         <span>title</span>
 
         <input
@@ -61,8 +61,6 @@ export default function IndexPage() {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <div className="col-span-2 py-1" />
-
         <span>showOnInitial</span>
 
         <input
@@ -71,8 +69,6 @@ export default function IndexPage() {
           checked={showOnInitial}
           onChange={(e) => setShowOnInitial(e.target.checked)}
         />
-
-        <div className="col-span-2" />
 
         <span>type</span>
 
@@ -95,7 +91,7 @@ export default function IndexPage() {
         <span>themeColor</span>
 
         <input
-          className="w-full h-12"
+          className="h-8"
           type="color"
           value={themeColor}
           onChange={(e) => setThemeColor(e.target.value)}
@@ -104,7 +100,7 @@ export default function IndexPage() {
         <span>textColor</span>
 
         <input
-          className="w-full h-12"
+          className="h-8"
           type="color"
           value={textColor}
           onChange={(e) => setTextColor(e.target.value)}
