@@ -61,15 +61,16 @@ Create API:
 ```js
 // pages/api/feedback.js
 
-import upstash from '@upstash/redis'
+import { Redis } from '@upstash/redis'
 
-const redis = upstash('UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN')
+const redis = new Redis({
+  url: 'UPSTASH_REDIS_REST_URL',
+  token: 'UPSTASH_REDIS_REST_TOKEN'
+})
 
 export default async function FeedbackWidgetAPI(req, res) {
   try {
-    const { error } = await redis.hset('feedback', Date.now(), req.body)
-    if (error) throw error
-
+    await redis.hset('feedback', Date.now(), req.body)
     return res.status(200).json({ message: 'success' })
   } catch (err) {
     return res.status(400).json({ message: err })
