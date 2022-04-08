@@ -3,7 +3,7 @@
 Create a Feedback Widget for your Next.js site with two steps. See [the demo](https://upstash-feedback-widget.vercel.app/)
 
 
-<img src="screenshot.png" width="100%" >
+<img src="ss1.png" width="100%" >
 
 ## 1. Frontend
 
@@ -84,7 +84,7 @@ export default async function FeedbackWidgetAPI(req, res) {
 
 The submitted forms can be managed on [Upstash Console Integrations](https://console.upstash.com/integration/feedback) page.
 
-<img src="fdata.png" width="100%" >
+<img src="ss2.png" width="100%" >
 
 ## Submitting the User Id
 
