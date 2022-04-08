@@ -4,16 +4,16 @@
     "build": "next build"
   },
   "dependencies": {
-    "@tailwindcss/forms": "^0.4.0",
-    "@upstash/feedback": "^0.2.0",
-    "@upstash/redis": "^1.0.0",
-    "next": "^12.0.8",
+    "@tailwindcss/forms": "^0.5.0",
+    "@upstash/feedback": "^0.2.3",
+    "@upstash/redis": "^1.0.3",
+    "next": "^12.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.15"
+    "autoprefixer": "^10.4.4",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23"
   }
 }

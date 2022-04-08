@@ -11,7 +11,9 @@ export default function IndexPage() {
   const [icon, setIcon] = useState('default')
   const [user, setUser] = useState('')
   const [title, setTitle] = useState('Hi 👋')
-  const [description, setDescription] = useState('Have feedback? We\'d love to hear it')
+  const [description, setDescription] = useState(
+    "Have feedback? We'd love to hear it"
+  )
   const [showOnInitial, setShowOnInitial] = useState(true)
 
   return (
