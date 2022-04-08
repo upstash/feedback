@@ -1,6 +1,6 @@
 {
   "name": "@upstash/feedback",
-  "version": "0.2.3",
+  "version": "1.0.0",
   "author": "Adem ilter <adem@upstash.com>",
   "license": "MIT",
   "main": "./dist/feedback-widget.umd.js",
