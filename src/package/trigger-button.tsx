@@ -18,6 +18,7 @@ export default function TriggerButton({
       onClick={() => {
         onModalShow(!isModalShow)
       }}
+      aria-label="Feedback"
     >
       {isModalShow ? (
         <>
