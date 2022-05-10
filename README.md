@@ -1,6 +1,6 @@
 # Feedback Widget for Next.js
 
-Create a Feedback Widget for your Next.js site with two steps.
+Create a Feedback Widget for your Next.js site with two steps. The submitted message will be sent to your Slack channel. No backend required!
 See [the demo](https://upstash-feedback-widget.vercel.app/)
 
 <img src="cover.png" width="100%" >
