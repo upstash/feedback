@@ -13,7 +13,19 @@ See [the demo](https://upstash-feedback-widget.vercel.app/)
 yarn add @upstash/feedback
 ```
 
-### 2. Import CSS and Widget
+### 2. Environment Variables
+
+Then create a `.env` file at the root directory of your application and add the
+variables to it.
+
+```bash
+SLACK_WEBHOOK_URL='my-secret-webhook-url'
+```
+
+> `SLACK_WEBHOOK_URL` can be found at the Slack integration page
+> in https://api.slack.com/messaging/webhooks
+
+### 3. Import CSS and Widget
 
 ```js
 // pages/_app.js
@@ -31,7 +43,7 @@ export default function MyApp({ Component, pageProps }) {
 }
 ```
 
-### 3. Create API
+### 4. Create API
 
 ```js
 // pages/api/feedback.js
@@ -42,6 +54,8 @@ export default createFeedbackAPI({
   webhooks: [process.env.SLACK_WEBHOOK_URL],
 });
 ```
+
+> You can create multiple webhooks for multiple channels.
 
 ## Options
 
