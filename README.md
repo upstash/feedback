@@ -3,6 +3,9 @@
 Create a Feedback Widget for your Next.js site with two steps.
 See [the demo](https://upstash-feedback-widget.vercel.app/)
 
+<img src="cover.png" width="100%" >
+
+
 ## Install
 
 ### 1. Install Package
