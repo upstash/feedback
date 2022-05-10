@@ -5,7 +5,6 @@ See [the demo](https://upstash-feedback-widget.vercel.app/)
 
 <img src="cover.png" width="100%" >
 
-
 ## Install
 
 ### 1. Install Package
@@ -20,7 +19,7 @@ yarn add @upstash/feedback
 // pages/_app.js
 
 import "@upstash/feedback/index.css";
-import FeedbackWidget from '@upstash/feedback'
+import FeedbackWidget from "@upstash/feedback";
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -28,23 +27,9 @@ export default function MyApp({ Component, pageProps }) {
       <FeedbackWidget />
       <Component {...pageProps} />
     </>
-  )
+  );
 }
 ```
-
-The options can be passed as React props
-
-| key            | type                         | default        | accept                 |
-| -------------- | ---------------------------- | -------------- | ---------------------- |
-| `user?`        | string                       |                |                        |
-| `metadata?`    | object                       | null           |                        |
-| `type?`        | string                       | "form"         | 'form', 'rate', 'full' |
-| `apiPath?`     | string                       | 'api/feedback' |                        |
-| `themeColor?`  | string                       | '#5f6c72'      |                        |
-| `textColor?`   | string                       | '#ffffff'      |                        |
-| `title`        | string, React.ReactElement |                |                        |
-| `description`  | string, React.ReactElement |                |                        |
-| `showOnInitial?` | boolean                      | false          |                        |
 
 ### 3. Create API
 
@@ -60,21 +45,31 @@ export default createFeedbackAPI({
 
 ## Options
 
+The options can be passed as React props
+
+| key              | type                       | default        | accept                 |
+| ---------------- | -------------------------- | -------------- | ---------------------- |
+| `user?`          | string                     |                |                        |
+| `metadata?`      | object                     | null           |                        |
+| `type?`          | string                     | "form"         | 'form', 'rate', 'full' |
+| `apiPath?`       | string                     | 'api/feedback' |                        |
+| `themeColor?`    | string                     | '#5f6c72'      |                        |
+| `textColor?`     | string                     | '#ffffff'      |                        |
+| `title`          | string, React.ReactElement |                |                        |
+| `description`    | string, React.ReactElement |                |                        |
+| `showOnInitial?` | boolean                    | false          |                        |
+
 If you already have an id (or email) for the current user, you can pass it to
 the component as a parameter, so the feedback will be stored together with the
 user's id.
 
-``` javascript
-<FeedbackWidget type="full" user={currentUser.email}/>
+```javascript
+<FeedbackWidget type="full" user={currentUser.email} />
 ```
 
 Also, you can set a user id just to hide email input, so the form can be
 submitted anonymously.
 
-``` javascript
-<FeedbackWidget type="full" user="anything"/>
+```javascript
+<FeedbackWidget type="full" user="anything" />
 ```
-
-
-       
-
