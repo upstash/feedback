@@ -1,30 +1,28 @@
 # Feedback Widget for Next.js
 
-Create a Feedback Widget for your Next.js site with two steps. See [the demo](https://upstash-feedback-widget.vercel.app/)
+Create a Feedback Widget for your Next.js site with two steps.
+See [the demo](https://upstash-feedback-widget.vercel.app/)
 
+## Install
 
-<img src="ss1.png" width="100%" >
-
-## 1. Frontend
-
-Install @upstash/feedback:
+### 1. Install Package
 
 ```bash
-npm install @upstash/feedback
+yarn add @upstash/feedback
 ```
 
-Import css and component:
+### 2. Import CSS and Widget
 
 ```js
 // pages/_app.js
 
-import '@upstash/feedback/dist/style.css'
+import "@upstash/feedback/index.css";
 import FeedbackWidget from '@upstash/feedback'
 
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      <FeedbackWidget type="full" />
+      <FeedbackWidget />
       <Component {...pageProps} />
     </>
   )
@@ -44,57 +42,32 @@ The options can be passed as React props
 | `title`        | string, React.ReactElement |                |                        |
 | `description`  | string, React.ReactElement |                |                        |
 | `showOnInitial?` | boolean                      | false          |                        |
-| `children?`    | React.ReactElement           |                |                        |
 
-## 2. Backend
-
-The data will be kept at [Upstash Redis](https://upstash.com). Create a free Redis database at [Upstash Console](https://console.upstash.com)          
-  
-Install @upstash/redis:
-
-```bash
-npm install @upstash/redis
-```
-
-Create API:
+### 3. Create API
 
 ```js
 // pages/api/feedback.js
 
-import { Redis } from '@upstash/redis'
+import createFeedbackAPI from "@upstash/feedback/api";
 
-const redis = new Redis({
-  url: 'UPSTASH_REDIS_REST_URL',
-  token: 'UPSTASH_REDIS_REST_TOKEN'
-})
-
-export default async function FeedbackWidgetAPI(req, res) {
-  try {
-    await redis.hset('feedback', Date.now(), req.body)
-    return res.status(200).json({ message: 'success' })
-  } catch (err) {
-    return res.status(400).json({ message: err })
-  }
-}
+export default createFeedbackAPI({
+  webhooks: [process.env.SLACK_WEBHOOK_URL],
+});
 ```
 
-> `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` can be found at the database details page in Upstash Console.
+## Options
 
-## Data Administration
+If you already have an id (or email) for the current user, you can pass it to
+the component as a parameter, so the feedback will be stored together with the
+user's id.
 
-The submitted forms can be managed on [Upstash Console Integrations](https://console.upstash.com/integration/feedback) page.
-
-<img src="ss2.png" width="100%" >
-
-## Submitting the User Id
-
-If you already have an id (or email) for the current user, you can pass it to the component as a parameter, so the feedback will be stored together with the user's id.
 ``` javascript
 <FeedbackWidget type="full" user={currentUser.email}/>
 ```
 
+Also, you can set a user id just to hide email input, so the form can be
+submitted anonymously.
 
-Also, you can set a user id just to hide email input, so the form can be submitted anonymously. 
 ``` javascript
 <FeedbackWidget type="full" user="anything"/>
 ```

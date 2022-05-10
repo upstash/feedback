@@ -1,23 +1,20 @@
-import FeedbackWidget from '@upstash/feedback'
-import { useState } from 'react'
-import IconDefault from '../components/icon-default'
-import IconSimple from '../components/icon-simple'
-import IconSquare from '../components/icon-square'
+import FeedbackWidget, { TypeForm } from "@upstash/feedback";
+import { useState } from "react";
 
 export default function IndexPage() {
-  const [type, setType] = useState('full')
-  const [themeColor, setThemeColor] = useState('#232323')
-  const [textColor, setTextColor] = useState('#ffffff')
-  const [icon, setIcon] = useState('default')
-  const [user, setUser] = useState('')
-  const [title, setTitle] = useState('Hi 👋')
+  const [type, setType] = useState<TypeForm>("full");
+  const [themeColor, setThemeColor] = useState("#00e9a3");
+  const [textColor, setTextColor] = useState("#111");
+  const [icon, setIcon] = useState("default");
+  const [user, setUser] = useState("");
+  const [title, setTitle] = useState("Hi 👋");
   const [description, setDescription] = useState(
     "Have feedback? We'd love to hear it"
-  )
-  const [showOnInitial, setShowOnInitial] = useState(true)
+  );
+  const [showOnInitial, setShowOnInitial] = useState(true);
 
   return (
-    <div className="p-10">
+    <div className="p-10 min-h-screen bg-zinc-900 text-zinc-50">
       <header className="mb-10 space-y-1">
         <h1 className="text-3xl font-bold">
           <a
@@ -30,6 +27,7 @@ export default function IndexPage() {
               aria-hidden="true"
               viewBox="0 0 16 16"
               version="1.1"
+              fill="currentColor"
             >
               <path
                 fillRule="evenodd"
@@ -39,16 +37,16 @@ export default function IndexPage() {
             <span>upstash/feedback</span>
           </a>
         </h1>
-        <p className="text-gray-600">
+        <p className="text-zinc-400">
           A simple feedback widget for your website.
         </p>
       </header>
 
-      <div className="grid grid-cols-2 auto-rows-fr items-center w-fit gap-x-4 gap-y-2 p-6 bg-gray-100 rounded-xl">
+      <div className="grid grid-cols-2 auto-rows-fr items-center w-full max-w-2xl gap-x-4 gap-y-2 p-6 bg-zinc-800 rounded-xl">
         <span>title</span>
 
         <input
-          className="form-input w-full"
+          className="form-input w-full text-zinc-900"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -57,7 +55,7 @@ export default function IndexPage() {
         <span>description</span>
 
         <input
-          className="form-input w-full"
+          className="form-input w-full text-zinc-900"
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -75,7 +73,7 @@ export default function IndexPage() {
         <span>type</span>
 
         <div className="flex items-center space-x-4 py-2">
-          {['full', 'form', 'rate'].map((key) => (
+          {["full", "form", "rate"].map((key) => (
             <label key={key} className="inline-flex items-center space-x-2">
               <input
                 className="form-radio"
@@ -83,7 +81,7 @@ export default function IndexPage() {
                 name="type"
                 value={key}
                 checked={type === key}
-                onChange={(e) => setType(e.target.value)}
+                onChange={(e) => setType(e.target.value as TypeForm)}
               />
               <span>{key}</span>
             </label>
@@ -111,7 +109,7 @@ export default function IndexPage() {
         <span>icon</span>
 
         <div className="flex items-center space-x-4 py-2">
-          {['default', 'simple'].map((key) => (
+          {["default", "simple"].map((key) => (
             <label key={key} className="inline-flex items-center space-x-2">
               <input
                 className="form-radio"
@@ -120,9 +118,9 @@ export default function IndexPage() {
                 value={key}
                 checked={icon === key}
                 onChange={(e) => setIcon(e.target.value)}
-              />{' '}
-              {key === 'default' && <span>Default</span>}
-              {key === 'simple' && <span>Custom SVG</span>}
+              />{" "}
+              {key === "default" && <span>Default</span>}
+              {key === "simple" && <span>Custom SVG</span>}
             </label>
           ))}
         </div>
@@ -130,7 +128,7 @@ export default function IndexPage() {
         <span>user</span>
 
         <input
-          className="form-input w-full"
+          className="form-input w-full text-zinc-900"
           placeholder="optional"
           type="email"
           value={user}
@@ -138,78 +136,35 @@ export default function IndexPage() {
         />
       </div>
 
-      <pre className="mt-8 p-6 bg-gray-100 rounded-xl">
-        {`<FeedbackWidget
-  type="${type}",
-  themeColor="${themeColor}",
-  title=${title === '' ? '{null}' : `"${title}"`},
-  description=${description === '' ? '{null}' : `"${description}"`},
-  textColor="${textColor}",${
+      <pre className="mt-8 p-6 w-full max-w-2xl bg-zinc-800 text-zinc-100 rounded-xl overflow-auto">
+        {`<FeedbackWidget${
           showOnInitial
             ? `
   showOnInitial="${showOnInitial}"`
-            : ''
-        },${
+            : ""
+        }
+  type="${type}"
+  themeColor="${themeColor}"
+  textColor="${textColor}"
+  title=${title === "" ? "{null}" : `"${title}"`}
+  description=${description === "" ? "{null}" : `"${description}"`}${
           user
             ? `
   user="${user}"`
-            : ''
+            : ""
         }
-  metadata={{ page: "index", location: "Palo Alto, CA" }}
-${icon === 'default' ? '/>' : '>'}
-  ${
-    icon === 'simple'
-      ? `<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="34"
-    height="34"
-    color="${textColor}"
-    fill="currentColor"
-    viewBox="0 0 256 256">
-      <path
-        d="M132,216H47.7a7.6,7.6,0,0,1-7.7-7.7V124a92,92,0,0,1,92-92h0a92,92,0,0,1,92,92h0A92,92,0,0,1,132,216Z"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="14"/>
-    </svg>\n<FeedbackWidget/>`
-      : ''
-  }${
-          icon === 'square'
-            ? `<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="34"
-    height="34"
-    color="${textColor}"
-    fill="currentColor"
-    viewBox="0 0 256 256">
-      <path
-        d="M77.4,201.9l-32.3,27A8,8,0,0,1,32,222.8V64a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8V192a8,8,0,0,1-8,8H82.5A7.8,7.8,0,0,0,77.4,201.9Z"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="14"/>
-    </svg>\n<FeedbackWidget/>`
-            : ''
-        }`}
+/>`}
       </pre>
 
       <FeedbackWidget
-        user={user}
+        showOnInitial={showOnInitial}
         type={type}
         themeColor={themeColor}
         textColor={textColor}
-        metadata={{ page: 'index', location: 'Palo Alto, CA' }}
-        showOnInitial={showOnInitial}
         title={title}
         description={description}
-      >
-        {icon === 'simple' && <IconSimple color={textColor} />}
-        {icon === 'square' && <IconSquare color={textColor} />}
-        {icon === 'default' && <IconDefault color={textColor} />}
-      </FeedbackWidget>
+        user={user}
+      />
     </div>
-  )
+  );
 }

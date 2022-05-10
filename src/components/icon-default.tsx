@@ -1,4 +1,6 @@
-export default function IconDefault({ size = 34, color = '#fff', ...props }) {
+import React from "react";
+
+export default function IconDefault({ size = 34, color = "#fff", ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +23,5 @@ export default function IconDefault({ size = 34, color = '#fff', ...props }) {
       <circle cx="84" cy="128" r="12" />
       <circle cx="180" cy="128" r="12" />
     </svg>
-  )
+  );
 }

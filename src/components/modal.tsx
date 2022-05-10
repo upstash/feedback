@@ -1,17 +1,16 @@
-import FeedbackContext from './store'
-import React, { useContext } from 'react'
-import styles from './styles.module.css'
-import FeedbackModalElementRate from './modal-element-rate'
-import EmojiSad from './emoji-sad'
-import EmojiNice from './emoji-nice'
-import EmojiMeh from './emoji-meh'
+import FeedbackContext from "../store";
+import React, { useContext } from "react";
+import FeedbackModalElementRate from "./modal-element-rate";
+import EmojiSad from "./emoji-sad";
+import EmojiNice from "./emoji-nice";
+import EmojiMeh from "./emoji-meh";
 
 export default function FeedbackModal({
   title,
   description,
 }: {
-  title?: null | string | React.ReactElement
-  description?: null | string | React.ReactElement
+  title?: null | string | React.ReactElement;
+  description?: null | string | React.ReactElement;
 }) {
   const {
     isModalShow,
@@ -28,30 +27,30 @@ export default function FeedbackModal({
 
     isHasUser,
     type,
-  } = useContext(FeedbackContext)
+  } = useContext(FeedbackContext);
 
-  if (!isModalShow) return null
+  if (!isModalShow) return null;
 
   return (
-    <div className={styles.modal}>
+    <div className="feedback-widget-modal">
       {(title || description) && (
-        <header className={styles.header}>
-          {title && <h3 className={styles.modalTitle}>{title}</h3>}
+        <header className="feedback-widget-header">
+          {title && <h3 className="feedback-widget-modal-title">{title}</h3>}
           {description && <p>{description}</p>}
         </header>
       )}
 
       <form
-        className={styles.form}
+        className="feedback-widget-form"
         onSubmit={(e) => {
-          e.preventDefault()
-          onSend()
+          e.preventDefault();
+          onSend();
         }}
       >
         {!isHasUser && (
           <div>
             <input
-              className={styles.formElement}
+              className="feedback-widget-form-control"
               type="email"
               name="email"
               placeholder="Email"
@@ -64,10 +63,10 @@ export default function FeedbackModal({
           </div>
         )}
 
-        {['full', 'form'].includes(type) && (
+        {["full", "form"].includes(type) && (
           <div>
             <textarea
-              className={styles.formElementTextarea}
+              className="feedback-widget-form-control"
               name="message"
               placeholder="Message"
               rows={3}
@@ -80,29 +79,29 @@ export default function FeedbackModal({
           </div>
         )}
 
-        {['full', 'rate'].includes(type) && (
+        {["full", "rate"].includes(type) && (
           <div>
-            <div className={styles.rateContainer}>
+            <div className="feedback-widget-form-rate">
               <FeedbackModalElementRate
                 value="bad"
                 selected={formRate}
                 onChange={onChangeFormRate}
               >
-                <EmojiSad color={formRate === 'bad' ? '#000' : '#999'} />
+                <EmojiSad color={formRate === "bad" ? "#000" : "#999"} />
               </FeedbackModalElementRate>
               <FeedbackModalElementRate
                 value="meh"
                 selected={formRate}
                 onChange={onChangeFormRate}
               >
-                <EmojiMeh color={formRate === 'meh' ? '#000' : '#999'} />
+                <EmojiMeh color={formRate === "meh" ? "#000" : "#999"} />
               </FeedbackModalElementRate>
               <FeedbackModalElementRate
                 value="nice"
                 selected={formRate}
                 onChange={onChangeFormRate}
               >
-                <EmojiNice color={formRate === 'nice' ? '#000' : '#999'} />
+                <EmojiNice color={formRate === "nice" ? "#000" : "#999"} />
               </FeedbackModalElementRate>
             </div>
           </div>
@@ -110,7 +109,7 @@ export default function FeedbackModal({
 
         <div>
           <button
-            className={styles.formElementButton}
+            className="feedback-widget-form-control"
             type="submit"
             disabled={isSending}
           >
@@ -119,5 +118,5 @@ export default function FeedbackModal({
         </div>
       </form>
     </div>
-  )
+  );
 }

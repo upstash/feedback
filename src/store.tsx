@@ -1,29 +1,29 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from "react";
 
-type TypeRate = '' | 'bad' | 'meh' | 'nice'
+export type TypeRate = "" | "bad" | "meh" | "nice";
 
 const defaultState = {
   isModalShow: false,
   onModalShow: (state: boolean) => {},
 
-  formUser: '',
+  formUser: "",
   onChangeFormUser: (value: string) => {},
-  formMessage: '',
+  formMessage: "",
   onChangeFormMessage: (value: string) => {},
-  formRate: '',
+  formRate: "",
   onChangeFormRate: (value: TypeRate) => {},
 
   isSending: false,
   onSend: () => {},
 
   isHasUser: false,
-  type: 'form',
-  themeColor: '#1f5a68',
-  textColor: 'white',
+  type: "form",
+  themeColor: "#1f5a68",
+  textColor: "white",
   showOnInitial: false,
-}
+};
 
-const FeedbackContext = createContext(defaultState)
+const FeedbackContext = createContext(defaultState);
 
 export function FeedbackProvider({
   children,
@@ -35,64 +35,70 @@ export function FeedbackProvider({
   textColor,
   showOnInitial,
 }: {
-  children: React.ReactElement
-  type: string
-  apiPath: string
-  user?: string
-  metadata?: object
-  themeColor: string
-  textColor: string
-  showOnInitial: boolean
+  children: React.ReactElement;
+  type: string;
+  apiPath: string;
+  user?: string;
+  metadata?: object;
+  themeColor: string;
+  textColor: string;
+  showOnInitial: boolean;
 }) {
-  const [isModalShow, setIsModalShow] = useState(showOnInitial)
+  const [isModalShow, setIsModalShow] = useState(showOnInitial);
 
-  const [formUser, setFormUser] = useState('')
-  const [formMessage, setFormMessage] = useState('')
-  const [formRate, setFormRate] = useState<TypeRate>('')
-  const [isSending, setIsSending] = useState(false)
+  const [formUser, setFormUser] = useState("");
+  const [formMessage, setFormMessage] = useState("");
+  const [formRate, setFormRate] = useState<TypeRate>("");
+  const [isSending, setIsSending] = useState(false);
 
-  const isHasUser = !!user
+  const isHasUser = !!user;
 
   const onSend = async () => {
     try {
-      setIsSending(true)
+      setIsSending(true);
+
       await fetch(apiPath, {
-        method: 'post',
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           user: user || formUser,
           message: formMessage,
           rate: formRate,
           metadata,
         }),
-      })
+      });
+
       // upstash is very fast. need to slow down a bit for the user to believe
-      await new Promise((r) => setTimeout(r, 600))
-      setFormUser('')
-      setFormMessage('')
-      setFormRate('')
-      setIsModalShow(false)
+      // await new Promise((r) => setTimeout(r, 600))
+
+      setFormUser("");
+      setFormMessage("");
+      setFormRate("");
+      setIsModalShow(false);
     } catch (err) {
-      alert(err)
+      alert(err);
     } finally {
-      setIsSending(false)
+      setIsSending(false);
     }
-  }
+  };
 
   const onModalShow = (status: boolean) => {
-    setIsModalShow(status)
-  }
+    setIsModalShow(status);
+  };
 
   const onChangeFormUser = (value: string) => {
-    setFormUser(value)
-  }
+    setFormUser(value);
+  };
 
   const onChangeFormMessage = (value: string) => {
-    setFormMessage(value)
-  }
+    setFormMessage(value);
+  };
 
   const onChangeFormRate = (value: TypeRate) => {
-    setFormRate(value)
-  }
+    setFormRate(value);
+  };
 
   return (
     <FeedbackContext.Provider
@@ -119,7 +125,7 @@ export function FeedbackProvider({
     >
       {children}
     </FeedbackContext.Provider>
-  )
+  );
 }
 
-export default FeedbackContext
+export default FeedbackContext;
