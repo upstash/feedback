@@ -1,7 +1,8 @@
 # Feedback Widget for Next.js
 
-Create a Feedback Widget for your Next.js site with two steps. The submitted message will be sent to your Slack channel. No backend required!
-See [the demo](https://upstash-feedback-widget.vercel.app/)
+Create a Feedback Widget for your Next.js site with two steps. The submitted message will be sent to your Slack channel. 
+
+No backend required! See [the demo](https://upstash-feedback-widget.vercel.app/)
 
 <img src="cover.png" width="100%" >
 
@@ -15,8 +16,7 @@ yarn add @upstash/feedback
 
 ### 2. Environment Variables
 
-Then create a `.env` file at the root directory of your application and add the
-variables to it.
+Then create a `.env` file at the root directory of your application and add your webhook URL (Slack, Discord etc).
 
 ```bash
 SLACK_WEBHOOK_URL='my-secret-webhook-url'
@@ -55,7 +55,7 @@ export default createFeedbackAPI({
 });
 ```
 
-> You can create multiple webhooks for multiple channels.
+> You can create multiple webhooks for multiple channels. Seperate them with a comma `[process.env.SLACK1_WEBHOOK_URL, process.env.SLACK2_WEBHOOK_URL, process.env.DISCORD_WEBHOOK_URL]`
 
 ## Options
 
