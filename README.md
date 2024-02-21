@@ -1,5 +1,10 @@
 # Feedback Widget for Next.js
 
+> [!NOTE]  
+> **This project is a Community Project.**
+>
+> The project is maintained and supported by the community. Upstash may contribute but does not officially support or assume responsibility for it.
+
 Create a Feedback Widget for your Next.js site with two steps. The submitted message will be sent to your Slack channel. 
 
 No backend required! See [the demo](https://upstash-feedback-widget.vercel.app/)
