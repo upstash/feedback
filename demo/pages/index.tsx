@@ -1,5 +1,31 @@
 import FeedbackWidget, { TypeForm } from "@upstash/feedback";
 import { useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
+const CodeBlock = ({ code }: { code: string }) => {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const copyToClipboard = (code: string) => {
+    navigator.clipboard.writeText(code);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
+
+  return (
+    <div className="relative">
+      <SyntaxHighlighter language="jsx" style={atomDark}>
+        {code}
+      </SyntaxHighlighter>
+      <button
+        onClick={() => copyToClipboard(code)}
+        className="absolute top-2 right-2 bg-[#00e9a3] text-md text-black text-white px-4 py-1 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {isCopied ? "Copied!" : "Copy"}
+      </button>
+    </div>
+  );
+};
 
 export default function IndexPage() {
   const [type, setType] = useState<TypeForm>("full");
@@ -12,6 +38,24 @@ export default function IndexPage() {
     "Have feedback? We'd love to hear it"
   );
   const [showOnInitial, setShowOnInitial] = useState(true);
+
+  const codeSnippet = `<FeedbackWidget${
+    showOnInitial
+      ? `
+  showOnInitial="${showOnInitial}"`
+      : ""
+  }
+  type="${type}"
+  themeColor="${themeColor}"
+  textColor="${textColor}"
+  title=${title === "" ? "{null}" : `"${title}"`}
+  description=${description === "" ? "{null}" : `"${description}"`}${
+    user
+      ? `
+  user="${user}"`
+      : ""
+  }
+/>`;
 
   return (
     <div className="p-10 min-h-screen bg-zinc-900 text-zinc-50">
@@ -136,25 +180,9 @@ export default function IndexPage() {
         />
       </div>
 
-      <pre className="mt-8 p-6 w-full max-w-2xl bg-zinc-800 text-zinc-100 rounded-xl overflow-auto">
-        {`<FeedbackWidget${
-          showOnInitial
-            ? `
-  showOnInitial="${showOnInitial}"`
-            : ""
-        }
-  type="${type}"
-  themeColor="${themeColor}"
-  textColor="${textColor}"
-  title=${title === "" ? "{null}" : `"${title}"`}
-  description=${description === "" ? "{null}" : `"${description}"`}${
-          user
-            ? `
-  user="${user}"`
-            : ""
-        }
-/>`}
-      </pre>
+      <div className="mt-8 p-6 w-full max-w-2xl bg-zinc-800 text-zinc-100 rounded-xl overflow-auto">
+        <CodeBlock code={codeSnippet} />
+      </div>
 
       <FeedbackWidget
         showOnInitial={showOnInitial}
